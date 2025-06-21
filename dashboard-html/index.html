@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+    <meta charset="UTF-8" />
+    <title>Dashboard Sensori</title>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+<body>
+    <h1>Dashboard Dati Sensori</h1>
+    <canvas id="sensoriChart" width="600" height="400"></canvas>
+
+    <script>
+        // Funzione per prendere i dati dal backend
+        async function fetchDati() {
+            try {
+                const response = await fetch('http://localhost:5000/api/sensori/dati'); // Cambia con URL backend
+                const data = await response.json();
+                return data;
+            } catch (error) {
+                console.error('Errore nel fetch dati:', error);
+                return [];
+            }
+        }
+
+        // Funzione per aggiornare il grafico
+        async function aggiornaGrafico() {
+            const dati = await fetchDati();
+
+            // Supponiamo che data sia un array di oggetti: {timestamp: "...", valore: number}
+            const labels = dati.map(d => new Date(d.timestamp).toLocaleTimeString());
+            const valori = dati.map(d => d.valore);
+
+            if(window.myChart) {
+                // Aggiorna i dati del grafico esistente
+                window.myChart.data.labels = labels;
+                window.myChart.data.datasets[0].data = valori;
+                window.myChart.update();
+            } else {
+                // Crea il grafico per la prima volta
+                const ctx = document.getElementById('sensoriChart').getContext('2d');
+                window.myChart = new Chart(ctx, {
+                    type: 'line',
+                    data: {
+                        labels: labels,
+                        datasets: [{
+                            label: 'Valore Sensore',
+                            data: valori,
+                            borderColor: 'blue',
+                            fill: false,
+                        }]
+                    },
+                    options: {
+                        scales: {
+                            x: {
+                                display: true,
+                                title: { display: true, text: 'Ora' }
+                            },
+                            y: {
+                                display: true,
+                                title: { display: true, text: 'Valore' }
+                            }
+                        }
+                    }
+                });
+            }
+        }
+
+        // Aggiorna grafico ogni 5 secondi
+        aggiornaGrafico();
+        setInterval(aggiornaGrafico, 5000);
+    </script>
+</body>
+</html>
