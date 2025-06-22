@@ -1,25 +1,29 @@
 package com.example.webviewgrafana
 
 import android.os.Bundle
+import android.webkit.WebSettings
 import android.webkit.WebView
 import android.webkit.WebViewClient
 import androidx.appcompat.app.AppCompatActivity
 
 class MainActivity : AppCompatActivity() {
+
+    private lateinit var webView: WebView
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+        setContentView(R.layout.activity_main)
 
-        // Crea una WebView e la usa come contenuto principale
-        val webView = WebView(this)
-        setContentView(webView)
+        webView = findViewById(R.id.webview)
 
-        // Serve per aprire i link nella stessa WebView
         webView.webViewClient = WebViewClient()
-        // Abilita JavaScript (Grafana ne ha bisogno)
         webView.settings.javaScriptEnabled = true
+        webView.settings.cacheMode = WebSettings.LOAD_DEFAULT
 
-        // ⚠️ CAMBIA questo URL con quello della tua dashboard Grafana
-        val dashboardUrl = "http://192.168.1.10:3000/d/abc123/mia-dashboard?orgId=1"
+        val dashboardUrl = "https://grafana.com"
         webView.loadUrl(dashboardUrl)
     }
 }
+
+
+
