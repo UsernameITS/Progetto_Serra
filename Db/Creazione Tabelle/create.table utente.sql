@@ -1,0 +1,9 @@
+CREATE TABLE utente (
+UserId SERIAL PRIMARY KEY,
+RuoloId INT,
+Cognome VARCHAR(255),
+Nome VARCHAR(255),
+Email VARCHAR(255),
+Password VARCHAR(255),
+FOREIGN KEY (RuoloId) REFERENCES ruolo(RuoloId)
+);

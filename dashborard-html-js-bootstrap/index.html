@@ -10,41 +10,54 @@
     <title>Document</title>
 </head>
 
-<body>
+<body data-bs-spy="scroll" data-bs-target="#navbar-example2" data-bs-offset="0" tabindex="0">
     <!-- navbar -->
-    <nav class="navbar navbar-dark bg-dark" aria-label="First navbar example">
-        <div class="container-fluid"> <a class="navbar-brand" href="#">Progetto Serra
+    <nav id="navbar-example2" class="navbar bg-body-tertiary px-3 mb-3 fixed-top">
+        <a class="navbar-brand" href="#">Navbar</a>
+        <ul class="nav nav-pills">
+          <li class="nav-item">
+            <a class="nav-link" href="#scrollspyHeading1">First</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#scrollspyHeading2">Second</a>
+          </li>
+          <li class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle" data-bs-toggle="dropdown" href="#" role="button" aria-expanded="false">Dropdown</a>
+            <ul class="dropdown-menu">
+              <li><a class="dropdown-item" href="#scrollspyHeading3">Third</a></li>
+              <li><a class="dropdown-item" href="#scrollspyHeading4">Fourth</a></li>
+              <li><hr class="dropdown-divider"></li>
+              <li><a class="dropdown-item" href="#scrollspyHeading5">Fifth</a></li>
+            </ul>
+          </li>
+        </ul>
+    </nav>
+    
+    <div class="container mt-5 pt-5">
+        <div data-bs-spy="scroll" data-bs-target="#navbar-example2" data-bs-root-margin="0px 0px -40%" data-bs-smooth-scroll="true" class="scrollspy-example p-3 rounded-2" tabindex="0">
+            <h4 id="scrollspyHeading1">First heading</h4>
+            <p>This is the content for the first section. It demonstrates how the scrollspy works with the navbar above.</p>
+            <iframe class="w-100 h-75" src="http://localhost:3000/d-solo/b2e7123b-f681-47f3-84c4-0e8eeddcb297/sensori?orgId=1&from=1750315098000&to=1750316838000&timezone=browser&panelId=1&__feature.dashboardSceneSolo" frameborder="0"></iframe>
+            <h4 id="scrollspyHeading2">Second heading</h4>
+            <p>Here's the second section content. As you scroll, the navbar will highlight the current section.</p>
+            <iframe class="w-100 h-75" src="http://localhost:3000/d-solo/b2e7123b-f681-47f3-84c4-0e8eeddcb297/sensori?orgId=1&from=1750315098000&to=1750316838000&timezone=browser&panelId=1&__feature.dashboardSceneSolo" frameborder="0"></iframe>
+            <h4 id="scrollspyHeading3">Third heading</h4>
+            <p>The third section shows how dropdown items in the navbar work with scrollspy.</p>
+            <iframe class="w-100 h-75" src="http://localhost:3000/d-solo/b2e7123b-f681-47f3-84c4-0e8eeddcb297/sensori?orgId=1&from=1750315098000&to=1750316838000&timezone=browser&panelId=1&__feature.dashboardSceneSolo" frameborder="0"></iframe>
+            <h4 id="scrollspyHeading4">Fourth heading</h4>
+            <p>Fourth section content goes here. Notice how smooth scrolling works when clicking navbar items.</p>
+            <h4 id="scrollspyHeading5">Fifth heading</h4>
+            <p>This is the last section, accessible through the dropdown menu in the navbar.</p>
+        </div> 
 
-            </a> <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
-                data-bs-target="#navbarsExample01" aria-controls="navbarsExample01" aria-expanded="false"
-                aria-label="Toggle navigation"> <span class="navbar-toggler-icon"></span> </button>
-            <div class="collapse navbar-collapse" id="navbarsExample01">
-                <ul class="navbar-nav me-auto mb-2">
-                    <li class="nav-item"> <a class="nav-link active" aria-current="page" href="#">Home</a> </li>
-                    <li class="nav-item"> <a class="nav-link" href="#">Link</a> </li>
-                    <li class="nav-item"> <a class="nav-link disabled" aria-disabled="true">Disabled</a> </li>
-                    <li class="nav-item dropdown"> <a class="nav-link dropdown-toggle" href="#"
-                            data-bs-toggle="dropdown" aria-expanded="false">Dropdown</a>
-                        <ul class="dropdown-menu">
-                            <li><a class="dropdown-item" href="#">Action</a></li>
-                            <li><a class="dropdown-item" href="#">Another action</a></li>
-                            <li><a class="dropdown-item" href="#">Something else here</a></li>
-                        </ul>
-                    </li>
-                </ul>
-                <form role="search"> <input class="form-control" type="search" placeholder="Search" aria-label="Search">
-                </form>
+        <div class="container h-75 mt-5">
+            <div class="row">
+                <div class="col-12">
+                    <iframe class="w-100 h-75" src="http://localhost:3000/d-solo/b2e7123b-f681-47f3-84c4-0e8eeddcb297/sensori?orgId=1&from=1750315098000&to=1750316838000&timezone=browser&panelId=1&__feature.dashboardSceneSolo" frameborder="0"></iframe>
+                </div>
             </div>
         </div>
-    </nav>
-
-<div class="container h-75">
-    <div class="row">
-        <div class="col-12">
-            <iframe class="w-100 h-75" src="http://localhost:3000/d-solo/b2e7123b-f681-47f3-84c4-0e8eeddcb297/sensori?orgId=1&from=1750315098000&to=1750316838000&timezone=browser&panelId=1&__feature.dashboardSceneSolo" frameborder="0"></iframe>
     </div>
-</div>
 
 </body>
-
 </html>
