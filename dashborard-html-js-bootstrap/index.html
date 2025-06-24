@@ -7,153 +7,182 @@
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
     <link href="styles.css" rel="stylesheet">
     <title>Dashboard Serra</title>
 </head>
 
 <body data-bs-spy="scroll" data-bs-target="#navbar-example2" data-bs-offset="0" tabindex="0">
     <!-- navbar -->
-    <nav id="navbar-example2" class="navbar bg-body-tertiary px-3 mb-3 fixed-top">
-        <a class="navbar-brand" href="#">Navbar</a>
+    <nav id="navbar-example2" class="navbar px-3 mb-3 fixed-top">
+        <a class="navbar-brand" href="#"><i class="fas fa-leaf me-2"></i>Serra</a>
         <ul class="nav nav-pills">
-          <li class="nav-item">
-            <a class="nav-link" href="#scrollspyHeading1">First</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="#scrollspyHeading2">Second</a>
-          </li>
-          <li class="nav-item dropdown">
-            <a class="nav-link dropdown-toggle" data-bs-toggle="dropdown" href="#" role="button" aria-expanded="false">Dropdown</a>
-            <ul class="dropdown-menu">
-              <li><a class="dropdown-item" href="#scrollspyHeading3">Third</a></li>
-              <li><a class="dropdown-item" href="#scrollspyHeading4">Fourth</a></li>
-              <li><hr class="dropdown-divider"></li>
-              <li><a class="dropdown-item" href="#scrollspyHeading5">Fifth</a></li>
-            </ul>
-          </li>
+            <li class="nav-item">
+                <a class="nav-link" href="#temperatura"><i class="fas fa-temperature-high me-1"></i>Temperatura</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="#umidita"><i class="fas fa-tint me-1"></i>Umidità</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="#acqua"><i class="fas fa-water me-1"></i>Livello Acqua</a>
+            </li>
+            <li class="nav-item ms-2">
+                <a class="nav-link" href="login.html"><i class="fas fa-sign-out-alt me-1"></i>Logout</a>
+            </li>
         </ul>
     </nav>
     
     <div class="container">
-        <h1 class="dashboard-title">Dashboard Monitoraggio Serra</h1>
+        <h1 class="dashboard-title"><i class="fas fa-chart-line me-2"></i>Dashboard Monitoraggio Serra</h1>
         
-        <div id="grafanaCarousel" class="carousel slide" data-bs-ride="carousel" data-bs-interval="5000">
-            <!-- Indicatori -->
-            <div class="carousel-indicators">
-                <button type="button" data-bs-target="#grafanaCarousel" data-bs-slide-to="0" class="active"></button>
-                <button type="button" data-bs-target="#grafanaCarousel" data-bs-slide-to="1"></button>
-                <button type="button" data-bs-target="#grafanaCarousel" data-bs-slide-to="2"></button>
+        <!-- Sezione Temperatura -->
+        <section id="temperatura" class="mb-5">
+            <h2 class="section-title"><i class="fas fa-temperature-high me-2"></i>Temperatura Ambiente</h2>
+            <div id="temperaturaCarousel" class="carousel slide" data-bs-ride="carousel" data-bs-interval="10000">
+                <div class="carousel-indicators">
+                    <button type="button" data-bs-target="#temperaturaCarousel" data-bs-slide-to="0" class="active"></button>
+                    <button type="button" data-bs-target="#temperaturaCarousel" data-bs-slide-to="1"></button>
+                    <button type="button" data-bs-target="#temperaturaCarousel" data-bs-slide-to="2"></button>
+                </div>
+
+                <div class="carousel-inner">
+                    <div class="carousel-item active">
+                        <h3 class="panel-title">Temperatura Giornaliera</h3>
+                        <iframe
+                            src="http://localhost:3000/d-solo/1c1f173d-3be8-44f2-9260-d415bb383ba0/temperatura-ambiente?orgId=1&from=1704063600000&to=1704668400000&timezone=browser&panelId=1&__feature.dashboardSceneSolo"
+                            class="grafana-panel"
+                            title="Grafico Temperatura Giornaliera">
+                        </iframe>
+                    </div>
+                    <div class="carousel-item">
+                        <h3 class="panel-title">Temperatura Settimanale</h3>
+                        <iframe
+                            src="http://localhost:3000/d-solo/1c1f173d-3be8-44f2-9260-d415bb383ba0/temperatura-ambiente?orgId=1&from=1704063600000&to=1704668400000&timezone=browser&panelId=2&__feature.dashboardSceneSolo"
+                            class="grafana-panel"
+                            title="Grafico Temperatura Settimanale">
+                        </iframe>
+                    </div>
+                    <div class="carousel-item">
+                        <h3 class="panel-title">Temperatura Mensile</h3>
+                        <iframe
+                            src="http://localhost:3000/d-solo/1c1f173d-3be8-44f2-9260-d415bb383ba0/temperatura-ambiente?orgId=1&from=1704063600000&to=1704668400000&timezone=browser&panelId=3&__feature.dashboardSceneSolo"
+                            class="grafana-panel"
+                            title="Grafico Temperatura Mensile">
+                        </iframe>
+                    </div>
+                </div>
+
+                <button class="carousel-control-prev" type="button" data-bs-target="#temperaturaCarousel" data-bs-slide="prev">
+                    <span class="carousel-control-prev-icon"></span>
+                    <span class="visually-hidden">Precedente</span>
+                </button>
+                <button class="carousel-control-next" type="button" data-bs-target="#temperaturaCarousel" data-bs-slide="next">
+                    <span class="carousel-control-next-icon"></span>
+                    <span class="visually-hidden">Successivo</span>
+                </button>
             </div>
+        </section>
 
-            <!-- Slides -->
-            <div class="carousel-inner">
-                <!-- Temperatura -->
-                <div class="carousel-item active">
-                    <h2 class="panel-title">Temperatura Ambiente</h2>
-                    <iframe
-                        src="http://localhost:3000/d-solo/your-dashboard-uid/your-dashboard-name?orgId=1&panelId=1"
-                        class="grafana-panel"
-                        frameborder="0">
-                    </iframe>
+        <!-- Sezione Umidità -->
+        <section id="umidita" class="mb-5">
+            <h2 class="section-title"><i class="fas fa-tint me-2"></i>Umidità del Terreno</h2>
+            <div id="umiditaCarousel" class="carousel slide" data-bs-ride="carousel" data-bs-interval="10000">
+                <div class="carousel-indicators">
+                    <button type="button" data-bs-target="#umiditaCarousel" data-bs-slide-to="0" class="active"></button>
+                    <button type="button" data-bs-target="#umiditaCarousel" data-bs-slide-to="1"></button>
+                    <button type="button" data-bs-target="#umiditaCarousel" data-bs-slide-to="2"></button>
                 </div>
 
-                <!-- Umidità -->
-                <div class="carousel-item">
-                    <h2 class="panel-title">Umidità del Terreno</h2>
-                    <iframe
-                        src="http://localhost:3000/d-solo/your-dashboard-uid/your-dashboard-name?orgId=1&panelId=2"
-                        class="grafana-panel"
-                        frameborder="0">
-                    </iframe>
+                <div class="carousel-inner">
+                    <div class="carousel-item active">
+                        <h3 class="panel-title">Umidità Giornaliera</h3>
+                        <iframe
+                            src="http://localhost:3000/d-solo/1c1f173d-3be8-44f2-9260-d415bb383ba0/umidita-terreno?orgId=1&from=1704063600000&to=1704668400000&timezone=browser&panelId=1&__feature.dashboardSceneSolo"
+                            class="grafana-panel"
+                            title="Grafico Umidità Giornaliera">
+                        </iframe>
+                    </div>
+                    <div class="carousel-item">
+                        <h3 class="panel-title">Umidità Settimanale</h3>
+                        <iframe
+                            src="http://localhost:3000/d-solo/1c1f173d-3be8-44f2-9260-d415bb383ba0/umidita-terreno?orgId=1&from=1704063600000&to=1704668400000&timezone=browser&panelId=2&__feature.dashboardSceneSolo"
+                            class="grafana-panel"
+                            title="Grafico Umidità Settimanale">
+                        </iframe>
+                    </div>
+                    <div class="carousel-item">
+                        <h3 class="panel-title">Umidità Mensile</h3>
+                        <iframe
+                            src="http://localhost:3000/d-solo/1c1f173d-3be8-44f2-9260-d415bb383ba0/umidita-terreno?orgId=1&from=1704063600000&to=1704668400000&timezone=browser&panelId=3&__feature.dashboardSceneSolo"
+                            class="grafana-panel"
+                            title="Grafico Umidità Mensile">
+                        </iframe>
+                    </div>
                 </div>
 
-                <!-- Livello Acqua -->
-                <div class="carousel-item">
-                    <h2 class="panel-title">Livello Acqua Serbatoio</h2>
-                    <iframe
-                        src="http://localhost:3000/d-solo/your-dashboard-uid/your-dashboard-name?orgId=1&panelId=3"
-                        class="grafana-panel"
-                        frameborder="0">
-                    </iframe>
-                </div>
+                <button class="carousel-control-prev" type="button" data-bs-target="#umiditaCarousel" data-bs-slide="prev">
+                    <span class="carousel-control-prev-icon"></span>
+                    <span class="visually-hidden">Precedente</span>
+                </button>
+                <button class="carousel-control-next" type="button" data-bs-target="#umiditaCarousel" data-bs-slide="next">
+                    <span class="carousel-control-next-icon"></span>
+                    <span class="visually-hidden">Successivo</span>
+                </button>
             </div>
+        </section>
 
-            <!-- Controlli -->
-            <button class="carousel-control-prev" type="button" data-bs-target="#grafanaCarousel" data-bs-slide="prev">
-                <span class="carousel-control-prev-icon"></span>
-            </button>
-            <button class="carousel-control-next" type="button" data-bs-target="#grafanaCarousel" data-bs-slide="next">
-                <span class="carousel-control-next-icon"></span>
-            </button>
-        </div>
+        <!-- Sezione Livello Acqua -->
+        <section id="acqua" class="mb-5">
+            <h2 class="section-title"><i class="fas fa-water me-2"></i>Livello Acqua Serbatoio</h2>
+            <div id="acquaCarousel" class="carousel slide" data-bs-ride="carousel" data-bs-interval="10000">
+                <div class="carousel-indicators">
+                    <button type="button" data-bs-target="#acquaCarousel" data-bs-slide-to="0" class="active"></button>
+                    <button type="button" data-bs-target="#acquaCarousel" data-bs-slide-to="1"></button>
+                    <button type="button" data-bs-target="#acquaCarousel" data-bs-slide-to="2"></button>
+                </div>
+
+                <div class="carousel-inner">
+                    <div class="carousel-item active">
+                        <h3 class="panel-title">Livello Acqua Giornaliero</h3>
+                        <iframe
+                            src="http://localhost:3000/d-solo/1c1f173d-3be8-44f2-9260-d415bb383ba0/livello-acqua?orgId=1&from=1704063600000&to=1704668400000&timezone=browser&panelId=1&__feature.dashboardSceneSolo"
+                            class="grafana-panel"
+                            title="Grafico Livello Acqua Giornaliero">
+                        </iframe>
+                    </div>
+                    <div class="carousel-item">
+                        <h3 class="panel-title">Livello Acqua Settimanale</h3>
+                        <iframe
+                            src="http://localhost:3000/d-solo/1c1f173d-3be8-44f2-9260-d415bb383ba0/livello-acqua?orgId=1&from=1704063600000&to=1704668400000&timezone=browser&panelId=2&__feature.dashboardSceneSolo"
+                            class="grafana-panel"
+                            title="Grafico Livello Acqua Settimanale">
+                        </iframe>
+                    </div>
+                    <div class="carousel-item">
+                        <h3 class="panel-title">Livello Acqua Mensile</h3>
+                        <iframe
+                            src="http://localhost:3000/d-solo/1c1f173d-3be8-44f2-9260-d415bb383ba0/livello-acqua?orgId=1&from=1704063600000&to=1704668400000&timezone=browser&panelId=3&__feature.dashboardSceneSolo"
+                            class="grafana-panel"
+                            title="Grafico Livello Acqua Mensile">
+                        </iframe>
+                    </div>
+                </div>
+
+                <button class="carousel-control-prev" type="button" data-bs-target="#acquaCarousel" data-bs-slide="prev">
+                    <span class="carousel-control-prev-icon"></span>
+                    <span class="visually-hidden">Precedente</span>
+                </button>
+                <button class="carousel-control-next" type="button" data-bs-target="#acquaCarousel" data-bs-slide="next">
+                    <span class="carousel-control-next-icon"></span>
+                    <span class="visually-hidden">Successivo</span>
+                </button>
+            </div>
+        </section>
     </div>
 
-    <div class="container mt-5 pt-5">
-        <div data-bs-spy="scroll" data-bs-target="#navbar-example2" data-bs-root-margin="0px 0px -40%" data-bs-smooth-scroll="true" class="scrollspy-example p-3 rounded-2" tabindex="0">
-            <h4 id="scrollspyHeading1">Temperatura ambiente</h4>
-            <p>This is the content for the first section. It demonstrates how the scrollspy works with the navbar above.</p>
+    
+<!-- ------------------------------------------------- -->
 
-            <div id="carouselExampleCaptions" class="carousel slide">
-              <div class="carousel-indicators">
-                <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
-                <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="1" aria-label="Slide 2"></button>
-                <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="2" aria-label="Slide 3"></button>
-              </div>
-              <div class="carousel-inner">
-                <div class="carousel-item active">
-                  <iframe src="http://localhost:3000/d-solo/1c1f173d-3be8-44f2-9260-d415bb383ba0/temperatura-ambiente?orgId=1&from=1704063600000&to=1704668400000&timezone=browser&panelId=1&__feature.dashboardSceneSolo" width="450" height="200" frameborder="0"></iframe>
-
-                  <div class="carousel-caption d-none d-md-block">
-                    <h5>First slide label</h5>
-                    <p>Some representative placeholder content for the first slide.</p>
-                  </div>
-                </div>
-                <div class="carousel-item">
-                  <iframe src="http://localhost:3000/d-solo/1c1f173d-3be8-44f2-9260-d415bb383ba0/temperatura-ambiente?orgId=1&from=1704063600000&to=1704668400000&timezone=browser&panelId=3&__feature.dashboardSceneSolo" width="450" height="200" frameborder="0"></iframe>
-                  <div class="carousel-caption d-none d-md-block">
-                    <h5>Second slide label</h5>
-                    <p>Some representative placeholder content for the second slide.</p>
-                  </div>
-                </div>
-                <div class="carousel-item">
-                  <iframe src="http://localhost:3000/d-solo/1c1f173d-3be8-44f2-9260-d415bb383ba0/temperatura-ambiente?orgId=1&from=1704063600000&to=1704668400000&timezone=browser&panelId=2&__feature.dashboardSceneSolo" width="450" height="200" frameborder="0"></iframe>
-                  <div class="carousel-caption d-none d-md-block">
-                    <h5>Third slide label</h5>
-                    <p>Some representative placeholder content for the third slide.</p>
-                  </div>
-                </div>
-              </div>
-              <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide="prev">
-                <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-                <span class="visually-hidden">Previous</span>
-              </button>
-              <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide="next">
-                <span class="carousel-control-next-icon" aria-hidden="true"></span>
-                <span class="visually-hidden">Next</span>
-              </button>
-            </div>
-            
-            <h4 id="scrollspyHeading2">Second heading</h4>
-            <p>Here's the second section content. As you scroll, the navbar will highlight the current section.</p>
-            <iframe class="w-100 h-75" src="http://localhost:3000/d-solo/b2e7123b-f681-47f3-84c4-0e8eeddcb297/sensori?orgId=1&from=1750315098000&to=1750316838000&timezone=browser&panelId=1&__feature.dashboardSceneSolo" frameborder="0"></iframe>
-            <h4 id="scrollspyHeading3">Third heading</h4>
-            <p>The third section shows how dropdown items in the navbar work with scrollspy.</p>
-            <iframe class="w-100 h-75" src="http://localhost:3000/d-solo/b2e7123b-f681-47f3-84c4-0e8eeddcb297/sensori?orgId=1&from=1750315098000&to=1750316838000&timezone=browser&panelId=1&__feature.dashboardSceneSolo" frameborder="0"></iframe>
-            <h4 id="scrollspyHeading4">Fourth heading</h4>
-            <p>Fourth section content goes here. Notice how smooth scrolling works when clicking navbar items.</p>
-            <h4 id="scrollspyHeading5">Fifth heading</h4>
-            <p>This is the last section, accessible through the dropdown menu in the navbar.</p>
-        </div> 
-
-        <div class="container h-75 mt-5">
-            <div class="row">
-                <div class="col-12">
-                  
-                    <iframe class="w-100 h-75" src="http://localhost:3000/d-solo/b2e7123b-f681-47f3-84c4-0e8eeddcb297/sensori?orgId=1&from=1750315098000&to=1750316838000&timezone=browser&panelId=1&__feature.dashboardSceneSolo" frameborder="0"></iframe>
-                </div>
-            </div>
-        </div>
-    </div>
 
     <!-- Scripts -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
