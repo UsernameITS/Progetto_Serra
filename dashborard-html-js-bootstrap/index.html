@@ -1,13 +1,14 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="it">
 
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
-    <title>Document</title>
+    <link href="styles.css" rel="stylesheet">
+    <title>Dashboard Serra</title>
 </head>
 
 <body data-bs-spy="scroll" data-bs-target="#navbar-example2" data-bs-offset="0" tabindex="0">
@@ -33,11 +34,105 @@
         </ul>
     </nav>
     
+    <div class="container">
+        <h1 class="dashboard-title">Dashboard Monitoraggio Serra</h1>
+        
+        <div id="grafanaCarousel" class="carousel slide" data-bs-ride="carousel" data-bs-interval="5000">
+            <!-- Indicatori -->
+            <div class="carousel-indicators">
+                <button type="button" data-bs-target="#grafanaCarousel" data-bs-slide-to="0" class="active"></button>
+                <button type="button" data-bs-target="#grafanaCarousel" data-bs-slide-to="1"></button>
+                <button type="button" data-bs-target="#grafanaCarousel" data-bs-slide-to="2"></button>
+            </div>
+
+            <!-- Slides -->
+            <div class="carousel-inner">
+                <!-- Temperatura -->
+                <div class="carousel-item active">
+                    <h2 class="panel-title">Temperatura Ambiente</h2>
+                    <iframe
+                        src="http://localhost:3000/d-solo/your-dashboard-uid/your-dashboard-name?orgId=1&panelId=1"
+                        class="grafana-panel"
+                        frameborder="0">
+                    </iframe>
+                </div>
+
+                <!-- Umidità -->
+                <div class="carousel-item">
+                    <h2 class="panel-title">Umidità del Terreno</h2>
+                    <iframe
+                        src="http://localhost:3000/d-solo/your-dashboard-uid/your-dashboard-name?orgId=1&panelId=2"
+                        class="grafana-panel"
+                        frameborder="0">
+                    </iframe>
+                </div>
+
+                <!-- Livello Acqua -->
+                <div class="carousel-item">
+                    <h2 class="panel-title">Livello Acqua Serbatoio</h2>
+                    <iframe
+                        src="http://localhost:3000/d-solo/your-dashboard-uid/your-dashboard-name?orgId=1&panelId=3"
+                        class="grafana-panel"
+                        frameborder="0">
+                    </iframe>
+                </div>
+            </div>
+
+            <!-- Controlli -->
+            <button class="carousel-control-prev" type="button" data-bs-target="#grafanaCarousel" data-bs-slide="prev">
+                <span class="carousel-control-prev-icon"></span>
+            </button>
+            <button class="carousel-control-next" type="button" data-bs-target="#grafanaCarousel" data-bs-slide="next">
+                <span class="carousel-control-next-icon"></span>
+            </button>
+        </div>
+    </div>
+
     <div class="container mt-5 pt-5">
         <div data-bs-spy="scroll" data-bs-target="#navbar-example2" data-bs-root-margin="0px 0px -40%" data-bs-smooth-scroll="true" class="scrollspy-example p-3 rounded-2" tabindex="0">
-            <h4 id="scrollspyHeading1">First heading</h4>
+            <h4 id="scrollspyHeading1">Temperatura ambiente</h4>
             <p>This is the content for the first section. It demonstrates how the scrollspy works with the navbar above.</p>
-            <iframe class="w-100 h-75" src="http://localhost:3000/d-solo/b2e7123b-f681-47f3-84c4-0e8eeddcb297/sensori?orgId=1&from=1750315098000&to=1750316838000&timezone=browser&panelId=1&__feature.dashboardSceneSolo" frameborder="0"></iframe>
+
+            <div id="carouselExampleCaptions" class="carousel slide">
+              <div class="carousel-indicators">
+                <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
+                <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="1" aria-label="Slide 2"></button>
+                <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="2" aria-label="Slide 3"></button>
+              </div>
+              <div class="carousel-inner">
+                <div class="carousel-item active">
+                  <iframe src="http://localhost:3000/d-solo/1c1f173d-3be8-44f2-9260-d415bb383ba0/temperatura-ambiente?orgId=1&from=1704063600000&to=1704668400000&timezone=browser&panelId=1&__feature.dashboardSceneSolo" width="450" height="200" frameborder="0"></iframe>
+
+                  <div class="carousel-caption d-none d-md-block">
+                    <h5>First slide label</h5>
+                    <p>Some representative placeholder content for the first slide.</p>
+                  </div>
+                </div>
+                <div class="carousel-item">
+                  <iframe src="http://localhost:3000/d-solo/1c1f173d-3be8-44f2-9260-d415bb383ba0/temperatura-ambiente?orgId=1&from=1704063600000&to=1704668400000&timezone=browser&panelId=3&__feature.dashboardSceneSolo" width="450" height="200" frameborder="0"></iframe>
+                  <div class="carousel-caption d-none d-md-block">
+                    <h5>Second slide label</h5>
+                    <p>Some representative placeholder content for the second slide.</p>
+                  </div>
+                </div>
+                <div class="carousel-item">
+                  <iframe src="http://localhost:3000/d-solo/1c1f173d-3be8-44f2-9260-d415bb383ba0/temperatura-ambiente?orgId=1&from=1704063600000&to=1704668400000&timezone=browser&panelId=2&__feature.dashboardSceneSolo" width="450" height="200" frameborder="0"></iframe>
+                  <div class="carousel-caption d-none d-md-block">
+                    <h5>Third slide label</h5>
+                    <p>Some representative placeholder content for the third slide.</p>
+                  </div>
+                </div>
+              </div>
+              <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide="prev">
+                <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                <span class="visually-hidden">Previous</span>
+              </button>
+              <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide="next">
+                <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                <span class="visually-hidden">Next</span>
+              </button>
+            </div>
+            
             <h4 id="scrollspyHeading2">Second heading</h4>
             <p>Here's the second section content. As you scroll, the navbar will highlight the current section.</p>
             <iframe class="w-100 h-75" src="http://localhost:3000/d-solo/b2e7123b-f681-47f3-84c4-0e8eeddcb297/sensori?orgId=1&from=1750315098000&to=1750316838000&timezone=browser&panelId=1&__feature.dashboardSceneSolo" frameborder="0"></iframe>
@@ -53,11 +148,14 @@
         <div class="container h-75 mt-5">
             <div class="row">
                 <div class="col-12">
+                  
                     <iframe class="w-100 h-75" src="http://localhost:3000/d-solo/b2e7123b-f681-47f3-84c4-0e8eeddcb297/sensori?orgId=1&from=1750315098000&to=1750316838000&timezone=browser&panelId=1&__feature.dashboardSceneSolo" frameborder="0"></iframe>
                 </div>
             </div>
         </div>
     </div>
 
+    <!-- Scripts -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
 </body>
 </html>
