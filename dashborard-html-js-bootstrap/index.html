@@ -144,7 +144,7 @@
                             <div class="pump-status">
                                 <span id="pumpstat" class="status-indicator"></span>
                                 <span class="status-text ms-2">Stato: </span>
-                                <span id="stato" class="status-value">Inattiva</span>
+                                <span id="stato" class="status-value">Pompa Inattiva</span>
                             </div>
                             <div class="pump-buttons">
                                 <button onclick="attiva()" class="btn btn-success me-2" id="startPump">
@@ -257,6 +257,11 @@
     };
 
     function attiva() {
+        const statoAttuale = document.getElementById("stato").innerText;
+        if (statoAttuale === "Pompa Attiva" || statoAttuale === "Pompa In Attivazione") {
+            alert("La pompa è già attiva o in attivazione!");
+            return;
+        }
       if (socket.readyState === WebSocket.OPEN) {
         socket.send("attiva");
       } else {
@@ -265,6 +270,11 @@
     }
 
     function stop() {
+        const statoAttuale = document.getElementById("stato").innerText;
+        if (statoAttuale === "Pompa Inattiva" || statoAttuale === "Pompa In Spegnimento") {
+            alert("La pompa è già inattiva o in spegnimento!");
+            return;
+        }
       if (socket.readyState === WebSocket.OPEN) {
         socket.send("stop");
       } else {
