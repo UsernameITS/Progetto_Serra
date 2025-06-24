@@ -134,6 +134,31 @@
         <!-- Sezione Livello Acqua -->
         <section id="acqua" class="mb-5">
             <h2 class="section-title"><i class="fas fa-water me-2"></i>Livello Acqua Serbatoio</h2>
+            
+            <!-- Controlli Pompa -->
+            <div class="pump-controls mb-4">
+                <div class="card">
+                    <div class="card-body">
+                        <h3 class="card-title mb-3"><i class="fas fa-pump me-2"></i>Controllo Pompa</h3>
+                        <div class="d-flex align-items-center justify-content-between">
+                            <div class="pump-status">
+                                <span class="status-indicator"></span>
+                                <span class="status-text ms-2">Stato: </span>
+                                <span class="status-value">Spenta</span>
+                            </div>
+                            <div class="pump-buttons">
+                                <button class="btn btn-success me-2" id="startPump">
+                                    <i class="fas fa-play me-1"></i>Avvia
+                                </button>
+                                <button class="btn btn-danger" id="stopPump">
+                                    <i class="fas fa-stop me-1"></i>Ferma
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
             <div id="acquaCarousel" class="carousel slide" data-bs-ride="carousel" data-bs-interval="10000">
                 <div class="carousel-indicators">
                     <button type="button" data-bs-target="#acquaCarousel" data-bs-slide-to="0" class="active"></button>
@@ -186,5 +211,34 @@
 
     <!-- Scripts -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+    <script>
+        // Gestione della pompa
+        let isPumpRunning = false;
+        const startPumpBtn = document.getElementById('startPump');
+        const stopPumpBtn = document.getElementById('stopPump');
+        const statusIndicator = document.querySelector('.status-indicator');
+        const statusValue = document.querySelector('.status-value');
+
+        function updatePumpStatus(isRunning) {
+            isPumpRunning = isRunning;
+            statusIndicator.classList.toggle('active', isRunning);
+            statusValue.textContent = isRunning ? 'Accesa' : 'Spenta';
+            startPumpBtn.disabled = isRunning;
+            stopPumpBtn.disabled = !isRunning;
+        }
+
+        startPumpBtn.addEventListener('click', () => {
+            // Qui puoi aggiungere la chiamata API per avviare la pompa
+            updatePumpStatus(true);
+        });
+
+        stopPumpBtn.addEventListener('click', () => {
+            // Qui puoi aggiungere la chiamata API per fermare la pompa
+            updatePumpStatus(false);
+        });
+
+        // Inizializza lo stato della pompa
+        updatePumpStatus(false);
+    </script>
 </body>
 </html>
