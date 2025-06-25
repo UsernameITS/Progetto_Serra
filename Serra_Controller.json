@@ -24,7 +24,7 @@
         "env": []
     },
     {
-        "id": "908d13296ad96293",
+        "id": "20f01cb3a055be53",
         "type": "tab",
         "label": "Sistema Controllo Pompa",
         "disabled": false,
@@ -32,26 +32,56 @@
         "env": []
     },
     {
-        "id": "819e40e2f19bc7b6",
-        "type": "ui_tab",
-        "name": "Home",
-        "icon": "dashboard",
-        "disabled": false,
-        "hidden": false
+        "id": "77c987c41b033f78",
+        "type": "mqtt-broker",
+        "name": "Meteo",
+        "broker": "localhost",
+        "port": "1883",
+        "clientid": "",
+        "autoConnect": true,
+        "usetls": false,
+        "protocolVersion": "4",
+        "keepalive": "60",
+        "cleansession": true,
+        "autoUnsubscribe": true,
+        "birthTopic": "",
+        "birthQos": "0",
+        "birthPayload": "",
+        "birthMsg": {},
+        "closeTopic": "",
+        "closePayload": "",
+        "closeMsg": {},
+        "willTopic": "",
+        "willQos": "0",
+        "willPayload": "",
+        "willMsg": {},
+        "userProps": "",
+        "sessionExpiry": ""
     },
     {
-        "id": "1a26136e1dc2fa37",
-        "type": "ui_group",
-        "name": "Default",
-        "tab": "819e40e2f19bc7b6",
-        "order": 1,
-        "disp": true,
-        "width": 6,
-        "collapse": false,
-        "className": ""
+        "id": "9ac2f0f6da809a63",
+        "type": "postgresdb",
+        "name": "Serra",
+        "hostname": "localhost",
+        "hostnameType": "str",
+        "port": "5432",
+        "portType": "str",
+        "db": "Serra",
+        "dbType": "str",
+        "ssl": "false",
+        "sslType": "bool",
+        "ignore_check_ssl": "false",
+        "ignore_check_sslType": "bool",
+        "ssl_path": "",
+        "ssl_pathType": "str",
+        "user": "postgres",
+        "userType": "str",
+        "password": "__PWRD__",
+        "passwordType": "str",
+        "passwordContext": ""
     },
     {
-        "id": "32b60089d97091a9",
+        "id": "592017ba573c0db9",
         "type": "ui_base",
         "theme": {
             "name": "theme-light",
@@ -148,147 +178,10 @@
         }
     },
     {
-        "id": "ef522fe335d25be9",
-        "type": "ui_tab",
-        "name": "Meteo",
-        "icon": "dashboard",
-        "disabled": false,
-        "hidden": false
-    },
-    {
-        "id": "3169d5a00f592072",
-        "type": "ui_group",
-        "name": "Meteo",
-        "tab": "ef522fe335d25be9",
-        "order": 1,
-        "disp": true,
-        "width": 6,
-        "collapse": false,
-        "className": ""
-    },
-    {
-        "id": "69197ec68284d972",
-        "type": "postgresDB",
-        "name": "Servers",
-        "host": "127.0.0.1",
-        "port": 5432,
-        "database": "meteo",
-        "ssl": false,
-        "max": 10,
-        "min": 1,
-        "idle": 1000
-    },
-    {
-        "id": "97e7c98458336ee0",
-        "type": "postgreSQLConfig",
-        "name": "",
-        "host": "127.0.0.1",
-        "hostFieldType": "str",
-        "port": 5432,
-        "portFieldType": "num",
-        "database": "meteo",
-        "databaseFieldType": "str",
-        "ssl": "false",
-        "sslFieldType": "bool",
-        "applicationName": "",
-        "applicationNameType": "str",
-        "max": 10,
-        "maxFieldType": "num",
-        "idle": 1000,
-        "idleFieldType": "num",
-        "connectionTimeout": 10000,
-        "connectionTimeoutFieldType": "num",
-        "user": "postgres",
-        "userFieldType": "str",
-        "password": "password",
-        "passwordFieldType": "str"
-    },
-    {
-        "id": "0e21888c24113662",
-        "type": "postgresdb",
-        "name": "meteo",
-        "hostname": "localhost",
-        "hostnameType": "str",
-        "port": "5432",
-        "portType": "str",
-        "db": "meteo",
-        "dbType": "str",
-        "ssl": "false",
-        "sslType": "bool",
-        "ignore_check_ssl": "false",
-        "ignore_check_sslType": "bool",
-        "ssl_path": "",
-        "ssl_pathType": "str",
-        "user": "postgres",
-        "userType": "str",
-        "password": "__PWRD__",
-        "passwordType": "str",
-        "passwordContext": ""
-    },
-    {
-        "id": "77c987c41b033f78",
-        "type": "mqtt-broker",
-        "name": "Meteo",
-        "broker": "localhost",
-        "port": "1883",
-        "clientid": "",
-        "autoConnect": true,
-        "usetls": false,
-        "protocolVersion": "4",
-        "keepalive": "60",
-        "cleansession": true,
-        "autoUnsubscribe": true,
-        "birthTopic": "",
-        "birthQos": "0",
-        "birthPayload": "",
-        "birthMsg": {},
-        "closeTopic": "",
-        "closePayload": "",
-        "closeMsg": {},
-        "willTopic": "",
-        "willQos": "0",
-        "willPayload": "",
-        "willMsg": {},
-        "userProps": "",
-        "sessionExpiry": ""
-    },
-    {
-        "id": "2d149ef3aea8276a",
+        "id": "49fe2b45a60b5262",
         "type": "websocket-listener",
-        "path": "http://127.0.0.1:3001/c:/Users/A1133apulia/Desktop/Python/test.html",
-        "wholemsg": "false"
-    },
-    {
-        "id": "885adcfbe96ed3e8",
-        "type": "websocket-client",
         "path": "/ws/pulsante",
-        "tls": "",
-        "wholemsg": "true",
-        "hb": "0",
-        "subprotocol": "",
-        "headers": []
-    },
-    {
-        "id": "9ac2f0f6da809a63",
-        "type": "postgresdb",
-        "name": "Serra",
-        "hostname": "localhost",
-        "hostnameType": "str",
-        "port": "5432",
-        "portType": "str",
-        "db": "Serra",
-        "dbType": "str",
-        "ssl": "false",
-        "sslType": "bool",
-        "ignore_check_ssl": "false",
-        "ignore_check_sslType": "bool",
-        "ssl_path": "",
-        "ssl_pathType": "str",
-        "user": "postgres",
-        "userType": "str",
-        "password": "__PWRD__",
-        "passwordType": "str",
-        "passwordContext": ""
+        "wholemsg": "true"
     },
     {
         "id": "0bd48c2a1e19d7e1",
@@ -304,19 +197,17 @@
                 "vt": "str"
             }
         ],
-        "repeat": "",
+        "repeat": "5",
         "crontab": "",
-        "once": false,
-        "onceDelay": 0.1,
+        "once": true,
+        "onceDelay": "5",
         "topic": "",
         "payload": "\"INSERT INTO misurazioni (valore, timestamp, sensoreid, tipo)\tVALUES (20 + (random() * 10), date_trunc('second', now()), 1, 'temperatura');\"\t",
         "payloadType": "jsonata",
-        "x": 110,
+        "x": 120,
         "y": 40,
         "wires": [
-            [
-                "4c8b14060c7d27ac"
-            ]
+            []
         ]
     },
     {
@@ -354,8 +245,8 @@
         "y": 100,
         "wires": [
             [
-                "e28cac9f04cc492a",
-                "3251470fa4af888f"
+                "3251470fa4af888f",
+                "e28cac9f04cc492a"
             ]
         ]
     },
@@ -1200,56 +1091,57 @@
         "wires": []
     },
     {
-        "id": "a7aad045b955c6c8",
+        "id": "88d750cf771f8399",
         "type": "websocket in",
-        "z": "908d13296ad96293",
+        "z": "20f01cb3a055be53",
         "name": "",
-        "server": "",
-        "client": "885adcfbe96ed3e8",
+        "server": "49fe2b45a60b5262",
+        "client": "",
         "x": 120,
         "y": 40,
         "wires": [
             [
-                "bd82970e4acf1b06"
+                "a8890c668dc05d05",
+                "e10de9ba9cea9de0"
             ]
         ]
     },
     {
-        "id": "ec6106ac0ef1df2e",
+        "id": "295908146ed63f62",
         "type": "websocket out",
-        "z": "908d13296ad96293",
+        "z": "20f01cb3a055be53",
         "name": "",
-        "server": "",
-        "client": "885adcfbe96ed3e8",
-        "x": 510,
+        "server": "49fe2b45a60b5262",
+        "client": "",
+        "x": 570,
         "y": 40,
         "wires": []
     },
     {
-        "id": "bd82970e4acf1b06",
+        "id": "a8890c668dc05d05",
         "type": "function",
-        "z": "908d13296ad96293",
+        "z": "20f01cb3a055be53",
         "name": "Controllo Pompa",
-        "func": "if(msg.payload == \"attiva\"){\n    msg.payload = \"Pompa In Attivazione\"\n} else if(msg.payload == \"stop\"){\n    msg.payload = \"Pompa In Spegnimento\"\n} else {\n    msg.payload = \"Errore Sistema Irrigazione\"\n}\nreturn msg;",
+        "func": "if(msg.payload == \"attiva\"){\n    msg.payload = \"Pompa In Attivazione\"\n} else if(msg.payload == \"stop\"){\n    msg.payload = \"Pompa In Spegnimento\"\n}\nreturn msg;",
         "outputs": 1,
         "timeout": 0,
         "noerr": 0,
         "initialize": "",
         "finalize": "",
         "libs": [],
-        "x": 310,
+        "x": 330,
         "y": 40,
         "wires": [
             [
-                "ec6106ac0ef1df2e",
-                "b9b545d3b593da8b"
+                "295908146ed63f62",
+                "e10de9ba9cea9de0"
             ]
         ]
     },
     {
-        "id": "b9b545d3b593da8b",
+        "id": "e10de9ba9cea9de0",
         "type": "debug",
-        "z": "908d13296ad96293",
+        "z": "20f01cb3a055be53",
         "name": "debug 1",
         "active": true,
         "tosidebar": true,
@@ -1258,8 +1150,8 @@
         "complete": "false",
         "statusVal": "",
         "statusType": "auto",
-        "x": 480,
-        "y": 120,
+        "x": 520,
+        "y": 140,
         "wires": []
     }
 ]
