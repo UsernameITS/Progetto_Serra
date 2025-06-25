@@ -294,7 +294,7 @@
         "id": "0bd48c2a1e19d7e1",
         "type": "inject",
         "z": "5cab82883422a12c",
-        "name": "",
+        "name": "Temperatura1",
         "props": [
             {
                 "p": "payload"
@@ -306,12 +306,12 @@
         ],
         "repeat": "",
         "crontab": "",
-        "once": true,
+        "once": false,
         "onceDelay": 0.1,
         "topic": "",
         "payload": "\"INSERT INTO misurazioni (valore, timestamp, sensoreid, tipo)\tVALUES (20 + (random() * 10), date_trunc('second', now()), 1, 'temperatura');\"\t",
         "payloadType": "jsonata",
-        "x": 90,
+        "x": 110,
         "y": 40,
         "wires": [
             [
@@ -324,7 +324,7 @@
         "type": "mqtt out",
         "z": "5cab82883422a12c",
         "name": "Temp",
-        "topic": "meteo/temperatura",
+        "topic": "meteo/temperatura1",
         "qos": "",
         "retain": "",
         "respTopic": "",
@@ -333,7 +333,7 @@
         "correl": "",
         "expiry": "",
         "broker": "77c987c41b033f78",
-        "x": 250,
+        "x": 290,
         "y": 40,
         "wires": []
     },
@@ -342,7 +342,7 @@
         "type": "mqtt in",
         "z": "5cab82883422a12c",
         "name": "Temp",
-        "topic": "meteo/temperatura",
+        "topic": "meteo/temperatura1",
         "qos": "2",
         "datatype": "auto-detect",
         "broker": "77c987c41b033f78",
@@ -392,7 +392,7 @@
         "id": "d72a202adc93e671",
         "type": "inject",
         "z": "5cab82883422a12c",
-        "name": "",
+        "name": "Umidita1",
         "props": [
             {
                 "p": "payload"
@@ -404,12 +404,12 @@
         ],
         "repeat": "",
         "crontab": "",
-        "once": true,
+        "once": false,
         "onceDelay": 0.1,
         "topic": "",
         "payload": "\"INSERT INTO misurazioni (valore, timestamp, sensoreid, tipo)\tVALUES (50 + (random() * 30), date_trunc('second', now()), 4, 'umidità');\"\t",
         "payloadType": "jsonata",
-        "x": 90,
+        "x": 100,
         "y": 200,
         "wires": [
             [
@@ -422,7 +422,7 @@
         "type": "mqtt out",
         "z": "5cab82883422a12c",
         "name": "Hum",
-        "topic": "meteo/temperatura",
+        "topic": "meteo/umidita1",
         "qos": "",
         "retain": "",
         "respTopic": "",
@@ -440,7 +440,7 @@
         "type": "mqtt in",
         "z": "5cab82883422a12c",
         "name": "Hum",
-        "topic": "meteo/temperatura",
+        "topic": "meteo/umidita1",
         "qos": "2",
         "datatype": "auto-detect",
         "broker": "77c987c41b033f78",
@@ -490,7 +490,7 @@
         "id": "bc1c587a8685d4c6",
         "type": "inject",
         "z": "5cab82883422a12c",
-        "name": "",
+        "name": "Acqua1",
         "props": [
             {
                 "p": "payload"
@@ -502,7 +502,7 @@
         ],
         "repeat": "",
         "crontab": "",
-        "once": true,
+        "once": false,
         "onceDelay": 0.1,
         "topic": "",
         "payload": "\"INSERT INTO misurazioni (valore, timestamp, sensoreid, tipo)\tVALUES (70 + (random() * 20), date_trunc('second', now()), 5, 'livello_acqua');\"\t",
@@ -520,7 +520,7 @@
         "type": "mqtt out",
         "z": "5cab82883422a12c",
         "name": "Water",
-        "topic": "meteo/temperatura",
+        "topic": "meteo/acqua1",
         "qos": "",
         "retain": "",
         "respTopic": "",
@@ -538,7 +538,7 @@
         "type": "mqtt in",
         "z": "5cab82883422a12c",
         "name": "Water",
-        "topic": "meteo/temperatura",
+        "topic": "meteo/acqua1",
         "qos": "2",
         "datatype": "auto-detect",
         "broker": "77c987c41b033f78",
@@ -585,10 +585,37 @@
         "wires": []
     },
     {
+        "id": "1f2e3113f5fe078d",
+        "type": "inject",
+        "z": "5cab82883422a12c",
+        "name": "Temp MAX",
+        "props": [
+            {
+                "p": "payload"
+            },
+            {
+                "p": "topic",
+                "vt": "str"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "",
+        "payload": "\"INSERT INTO misurazioni (valore, timestamp, sensoreid, tipo)\tVALUES (35, date_trunc('second', now()), 1, 'temperatura');\"",
+        "payloadType": "jsonata",
+        "x": 480,
+        "y": 40,
+        "wires": [
+            []
+        ]
+    },
+    {
         "id": "bc20b6415e32f0c3",
         "type": "inject",
         "z": "b1e773cfbf2e0c47",
-        "name": "",
+        "name": "Temperatura2",
         "props": [
             {
                 "p": "payload"
@@ -605,7 +632,7 @@
         "topic": "",
         "payload": "\"INSERT INTO misurazioni (valore, timestamp, sensoreid, tipo)\tVALUES (20 + (random() * 10), date_trunc('second', now()), 6, 'temperatura');\"\t",
         "payloadType": "jsonata",
-        "x": 110,
+        "x": 140,
         "y": 40,
         "wires": [
             [
@@ -618,7 +645,7 @@
         "type": "mqtt out",
         "z": "b1e773cfbf2e0c47",
         "name": "Temp",
-        "topic": "meteo/temperatura",
+        "topic": "meteo/temperatura2",
         "qos": "",
         "retain": "",
         "respTopic": "",
@@ -627,7 +654,7 @@
         "correl": "",
         "expiry": "",
         "broker": "77c987c41b033f78",
-        "x": 270,
+        "x": 290,
         "y": 40,
         "wires": []
     },
@@ -636,7 +663,7 @@
         "type": "mqtt in",
         "z": "b1e773cfbf2e0c47",
         "name": "Temp",
-        "topic": "meteo/temperatura",
+        "topic": "meteo/temperatura2",
         "qos": "2",
         "datatype": "auto-detect",
         "broker": "77c987c41b033f78",
@@ -686,7 +713,7 @@
         "id": "159ef660e368561b",
         "type": "inject",
         "z": "b1e773cfbf2e0c47",
-        "name": "",
+        "name": "Umidita2",
         "props": [
             {
                 "p": "payload"
@@ -703,7 +730,7 @@
         "topic": "",
         "payload": "\"INSERT INTO misurazioni (valore, timestamp, sensoreid, tipo)\tVALUES (50 + (random() * 30), date_trunc('second', now()), 2, 'umidità');\"\t",
         "payloadType": "jsonata",
-        "x": 110,
+        "x": 120,
         "y": 200,
         "wires": [
             [
@@ -716,7 +743,7 @@
         "type": "mqtt out",
         "z": "b1e773cfbf2e0c47",
         "name": "Hum",
-        "topic": "meteo/temperatura",
+        "topic": "meteo/umidita2",
         "qos": "",
         "retain": "",
         "respTopic": "",
@@ -734,7 +761,7 @@
         "type": "mqtt in",
         "z": "b1e773cfbf2e0c47",
         "name": "Hum",
-        "topic": "meteo/temperatura",
+        "topic": "meteo/umidita2",
         "qos": "2",
         "datatype": "auto-detect",
         "broker": "77c987c41b033f78",
@@ -784,7 +811,7 @@
         "id": "e55a0634edeb1a10",
         "type": "inject",
         "z": "b1e773cfbf2e0c47",
-        "name": "",
+        "name": "Acqua2",
         "props": [
             {
                 "p": "payload"
@@ -801,7 +828,7 @@
         "topic": "",
         "payload": "\"INSERT INTO misurazioni (valore, timestamp, sensoreid, tipo)\tVALUES (70 + (random() * 20), date_trunc('second', now()), 7, 'livello_acqua');\"\t",
         "payloadType": "jsonata",
-        "x": 110,
+        "x": 120,
         "y": 360,
         "wires": [
             [
@@ -814,7 +841,7 @@
         "type": "mqtt out",
         "z": "b1e773cfbf2e0c47",
         "name": "Water",
-        "topic": "meteo/temperatura",
+        "topic": "meteo/acqua2",
         "qos": "",
         "retain": "",
         "respTopic": "",
@@ -832,7 +859,7 @@
         "type": "mqtt in",
         "z": "b1e773cfbf2e0c47",
         "name": "Water",
-        "topic": "meteo/temperatura",
+        "topic": "meteo/acqua2",
         "qos": "2",
         "datatype": "auto-detect",
         "broker": "77c987c41b033f78",
@@ -882,7 +909,7 @@
         "id": "8b59113eeb5bda07",
         "type": "inject",
         "z": "437097dd1cd0e785",
-        "name": "",
+        "name": "Temperatura3",
         "props": [
             {
                 "p": "payload"
@@ -899,7 +926,7 @@
         "topic": "",
         "payload": "\"INSERT INTO misurazioni (valore, timestamp, sensoreid, tipo)\tVALUES (20 + (random() * 10), date_trunc('second', now()), 8, 'temperatura');\"\t",
         "payloadType": "jsonata",
-        "x": 110,
+        "x": 140,
         "y": 40,
         "wires": [
             [
@@ -912,7 +939,7 @@
         "type": "mqtt out",
         "z": "437097dd1cd0e785",
         "name": "Temp",
-        "topic": "meteo/temperatura",
+        "topic": "meteo/temperatura3",
         "qos": "",
         "retain": "",
         "respTopic": "",
@@ -921,7 +948,7 @@
         "correl": "",
         "expiry": "",
         "broker": "77c987c41b033f78",
-        "x": 270,
+        "x": 290,
         "y": 40,
         "wires": []
     },
@@ -930,7 +957,7 @@
         "type": "mqtt in",
         "z": "437097dd1cd0e785",
         "name": "Temp",
-        "topic": "meteo/temperatura",
+        "topic": "meteo/temperatura3",
         "qos": "2",
         "datatype": "auto-detect",
         "broker": "77c987c41b033f78",
@@ -980,7 +1007,7 @@
         "id": "bdcb926edbdd69f3",
         "type": "inject",
         "z": "437097dd1cd0e785",
-        "name": "",
+        "name": "Umidita3",
         "props": [
             {
                 "p": "payload"
@@ -997,7 +1024,7 @@
         "topic": "",
         "payload": "\"INSERT INTO misurazioni (valore, timestamp, sensoreid, tipo)\tVALUES (50 + (random() * 30), date_trunc('second', now()), 9, 'umidità');\"\t",
         "payloadType": "jsonata",
-        "x": 110,
+        "x": 120,
         "y": 200,
         "wires": [
             [
@@ -1010,7 +1037,7 @@
         "type": "mqtt out",
         "z": "437097dd1cd0e785",
         "name": "Hum",
-        "topic": "meteo/temperatura",
+        "topic": "meteo/umidita3",
         "qos": "",
         "retain": "",
         "respTopic": "",
@@ -1028,7 +1055,7 @@
         "type": "mqtt in",
         "z": "437097dd1cd0e785",
         "name": "Hum",
-        "topic": "meteo/temperatura",
+        "topic": "meteo/umidita3",
         "qos": "2",
         "datatype": "auto-detect",
         "broker": "77c987c41b033f78",
@@ -1078,7 +1105,7 @@
         "id": "51dd37c96c94f859",
         "type": "inject",
         "z": "437097dd1cd0e785",
-        "name": "",
+        "name": "Acqua3",
         "props": [
             {
                 "p": "payload"
@@ -1095,7 +1122,7 @@
         "topic": "",
         "payload": "\"INSERT INTO misurazioni (valore, timestamp, sensoreid, tipo)\tVALUES (70 + (random() * 20), date_trunc('second', now()), 3, 'livello_acqua');\"\t",
         "payloadType": "jsonata",
-        "x": 110,
+        "x": 120,
         "y": 360,
         "wires": [
             [
@@ -1108,7 +1135,7 @@
         "type": "mqtt out",
         "z": "437097dd1cd0e785",
         "name": "Water",
-        "topic": "meteo/temperatura",
+        "topic": "meteo/acqua3",
         "qos": "",
         "retain": "",
         "respTopic": "",
@@ -1126,7 +1153,7 @@
         "type": "mqtt in",
         "z": "437097dd1cd0e785",
         "name": "Water",
-        "topic": "meteo/temperatura",
+        "topic": "meteo/acqua3",
         "qos": "2",
         "datatype": "auto-detect",
         "broker": "77c987c41b033f78",
